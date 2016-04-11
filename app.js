@@ -14,6 +14,7 @@
 // Google Maps Key = AIzaSyA2nELiFckMYPPmpE03y4zYxk6gaz_vRq4
 
 var map;
+var infowindows = [];
 // var nachoLoc = [];
 // var nachoName = [];
 // var nachoTxt = [];
@@ -51,11 +52,15 @@ function init() {
           position: venueLatLng,
           title: venueName
         });
+        infowindows.push(infowindow);
+
         marker.addListener('click', function() {
+          closerInfoWindow();
           infowindow.open(map, marker);
           $('#info').empty();
-          $('#info').append(contentString + $venueTxt); 
+          $('#info').append(contentString + $venueTxt);
         });
+
         // nachoLoc.push(venueLatLng);
         // nachoName.push(venueName);
         // nachoTxt.push(venueTxt);
@@ -63,6 +68,12 @@ function init() {
     }
   })
 };
+
+function closerInfoWindow() {
+  infowindows.forEach(function(infowindow) {
+    infowindow.close();
+  })
+}
 
 $(document).ready(function() {
   var nachosAppReference = new Firebase("https://mega-dope-chos.firebaseio.com/");
