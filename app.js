@@ -46,63 +46,49 @@ function init() {
         var infowindow = new google.maps.InfoWindow({
           content: contentString
         });
-
         var marker = new google.maps.Marker({
           map: map,
           position: venueLatLng,
           title: venueName
         });
-
         marker.addListener('click', function() {
           infowindow.open(map, marker);
           $('#info').empty();
           $('#info').append(contentString + $venueTxt); 
         });
-
         // nachoLoc.push(venueLatLng);
         // nachoName.push(venueName);
         // nachoTxt.push(venueTxt);
       })
     }
   })
-
 };
 
 $(document).ready(function() {
   var nachosAppReference = new Firebase("https://mega-dope-chos.firebaseio.com/");
-  
   $('#comment-form').submit(function(e) {
     e.preventDefault()
     var comment = $('#userComment').val();
     var username = $('#username').val();
     $('#userComment').val('');
     $('#username').val('');
-    // nachosAppReference.set({username: username, comment: comment})
     var nachosReference = nachosAppReference.child('comments');
     nachosReference.push({
       username: username,
       comment: comment
     })
-    
-    // nachosAppReference.set(nachosReference)
-    // console.log(comment, username)
   })
   
   function getFanMessages() {
-  
     nachosAppReference.child('comments').on('value', function(results){
       $("#commentSubmit").click(function() {
         $('#pastUserComments').empty();
       })
       var values = results.val();
-
       for(var key in values) {
         var msg = values[key];
-
         var container = $("<p><span class='un'>" + msg.username + "</span> says '" + msg.comment + "'</p>");
-
         container.appendTo('#pastUserComments');
-
       }
     })
   }
