@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Ceelo - Hot Hand at a Dice Game</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="Ceelo.css">
+    <script src="Ceelo.js"></script>
+  </head>
+  <body>
+  	<button onclick="location.reload()" id="roll">Roll</button>
+  	<label>Your roll:</label>
+  	<div id="score"></div>
+  	<label>Your score:</label>
+  	<div id="message"></div>
+  	<script type="text/javascript">
+  		document.getElementById("score").innerHTML = score;
+		document.getElementById("message").innerHTML = finalScore;
+	</script>
+  </body>
+</html>

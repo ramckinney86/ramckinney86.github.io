@@ -1,0 +1,53 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  	background: url('img/nachos2.jpg');
+	background-size: cover;
+}
+#map {
+  height: 100%;
+  width: 60%;
+  float: left;
+}
+#comments {
+	width: 36%;
+	height: 91%;
+	margin: 2% 2%;
+	float: left;
+	background-color: rgba(233, 178, 0, 0.7);
+	/*background: url('img/tortilla.jpg');*/
+	border-radius: 15px;
+}
+
+#comments h1 {
+	text-align: center;
+}
+
+#info {
+	width: 90%;
+	padding: 0 5%;
+}
+
+textarea#userComment {
+	width: 100%;
+	padding: 0;
+}
+
+button#commentSubmit {
+	width: 100%;
+}
+
+form {
+	width: 90%;
+	padding: 0 5%;
+}
+
+#pastUserComments {
+	width: 90%;
+    padding: 0 5%;
+}
+
+.un {
+	font-weight: bold;
+}
